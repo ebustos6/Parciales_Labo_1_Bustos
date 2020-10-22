@@ -1,57 +1,91 @@
-/*
- * Utn.h
- *
- *  Created on: Oct 15, 2020
- *      Author: Administrator
- */
-
 #ifndef UTN_H_
 #define UTN_H_
 
-int getString(char *msg, char *msgError, int min, int max, int *reintentos,
-		char *resultado);
+/*
+ * \brief Lee un string hasta '\n' o hasta - 1
+ * \param cadena Puntero a la direccion de memoria donde se va a copiar el string
+ * \param tamaño del string
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
+int utn_myGets(char *input, int size);
+//------------------------------------------------------------------------------------------------------------------------
+/*
+ * \brief Toma un int
+ * \param Mensaje
+ * \param Mensaje de error
+ * \param Valor minimo
+ * \param Valor maximo
+ * \param Reintentos
+ * \param Direccion de memoria donde se guardara el entero
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
+int utn_getEntero(char *msg, char *msgError, int minimo, int maximo,
+		int reintentos, int *input);
 
-int utn_getName(char *msg, char *msgError, int min, int max, int reintentos,
-		char *resultado);
-int isValidName(char *stringRecibido);
+/*
+ * \brief Obtiene un int
+ * \param pResultado Puntero al espacio de memoria donde se dejara el resultado
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ */
+int utn_getInt(int *input);
 
-int utn_getUnsignedInt(char *msg, char *msgError, int minSize, int maxSize,
-		int min, int max, int reintentos, int *input);
-int isValidNumber(char *stringRecibido);
+/*
+ * \brief Recibe un string y lo valida
+ * \param input string a evaluar
+ * \param size tamaño del string
+ * \return int (1) if OK y (0) if Error
+ *
+ */
+int isValidNumbers(char *input, int size);
+//------------------------------------------------------------------------------------------------------------------------
+/*
+ * \brief Toma un float
+ * \param Mensaje
+ * \param Mensaje de error
+ * \param Valor minimo posible
+ * \param Valor maximo posible
+ * \param Cantidad de intentos para ingresar el dato correctamente
+ * \param Direccion de memoria donde se guardara el flotante
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
+int utn_getFlotante(char *msg, char *msgError, float minimo,
+		float maximo, int reintentos, float *input);
 
-int utn_getSignedInt(char *msg, char *msgError, int minSize, int maxSize,
-		int min, int max, int reintentos, int *input);
-int isValidSignedNumber(char *stringRecibido);
+/*
+ * \brief Obtiene un float
+ * \param pResultado Puntero al espacio de memoria donde se dejara el resultado
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
+int utn_getFloat(float *input);
 
-int utn_getFloat(char *msg, char *msgError, int minSize, int maxSize, int min,
-		int max, int reintentos, float *input);
-int isValidFloatNumber(char *stringRecibido);
+/*
+ * \brief Recibe un string y lo valida
+ * \param cadena string a evaluar
+ * \param limite tamaño del string
+ * \return int (1) if OK y (0) if Error
+ *
+ */
+int isValidFloatNumber(char *input, int size);
 
-int utn_getTelefono(char *msg, char *msgError, int minSize, int maxSize,
-		int min, int max, int reintentos, char *input);
-int isValidTelephone(char *stringRecibido);
-
-int utn_getDNI(char *msg, char *msgError, int minSize, int maxSize,
+//------------------------------------------------------------------------------------------------------------------------
+/*
+ * \brief Toma una cadena por teclado y la devuelve
+ * \param Mensaje
+ * \param Mensaje de error
+ * \param Valor minimo
+ * \param Valor maximo
+ * \param Reintentos
+ * \param Direccion de memoria donde se guardara la cadena
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
+int utn_getCadena(char *msg, char *msgError, int minimo, int maximo,
 		int reintentos, char *input);
-int isValidDNI(char *stringRecibido);
 
-int utn_getCUIT(char *msg, char *msgError, int reintentos, char *input);
-int isValidCUIT(char *stringRecibido);
-
-int utn_getEmail(char *msg, char *msgError, int minSize, int maxSize,
-		int reintentos, char *input);
-int isValidEmail(char *stringRecibido);
-
-int utn_getTexto(char *msg, char *msgError, int minSize, int maxSize,
-		int reintentos, char *input);
-int isValidTexto(char *stringRecibido);
-
-int utn_getAlfanumerico(char *msg, char *msgError, int minSize, int maxSize,
-		int reintentos, char *input);
-int isValidAlphanumeric(char *stringRecibido);
-
-int utn_getChar(char *msg, char *msgError, int min, int max, int reintentos,
-		char *resultado);
-int isValidChar(char charRecibido);
+//------------------------------------------------------------------------------------------------------------------------
 
 #endif /* UTN_H_ */
